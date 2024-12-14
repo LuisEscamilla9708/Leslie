@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Imagen</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <!-- Video de fondo -->
+    <video autoplay muted loop id="videoFondo">
+        <source src="Rose Petals Petalos de rosas - Jordy Digital (1080p, h264, youtube).mp4" type="video/mp4">
+        Tu navegador no soporta el video de fondo.
+    </video>
+
+    <!-- Texto animado -->
+    <h1 class="texto-animado">Te Quiero Preciosa</h1>
+
+    <!-- Contenedor principal con la imagen y las imágenes pequeñas a los lados -->
+    <div class="container">
+        <img src="images/spike1.png" alt="Imagen Izquierda" class="imagen-lateral">
+        <img src="images/ana.png" alt="Imagen Principal" class="imagen-principal">
+        <img src="images/stich1.png" alt="Imagen Derecha" class="imagen-lateral">
+    </div>
+
+    <!-- Reproductor de música -->
+    <div class="musica">
+        <audio controls autoplay>
+            <source src="images/No Se Ocupa Más  Julion Álvarez  LetraLyrics.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
+    <script>
+        // Reproducir audio al cargar la página
+        window.addEventListener('load', () => {
+            const audio = document.getElementById('audio');
+            audio.play().catch(error => {
+                console.log('El navegador bloqueó el autoplay:', error);
+            });
+        });
+    </script>
+</body>
+</html>
