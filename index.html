@@ -18,17 +18,23 @@
 
     <!-- Contenedor principal con la imagen y las imágenes pequeñas a los lados -->
     <div class="container">
-        <img src="images/spike1.png" alt="Imagen Izquierda" class="imagen-lateral">
+        <div class="imagen-container">
+            <img src="images/spike1.png" alt="Imagen Izquierda" class="imagen-lateral">
+            <button class="boton" onclick="window.location.href='pagina1.html'">Click</button>
+        </div>
         <img src="images/ana.png" alt="Imagen Principal" class="imagen-principal">
-        <img src="images/stich1.png" alt="Imagen Derecha" class="imagen-lateral">
+        <div class="imagen-container">
+            <img src="images/stich1.png" alt="Imagen Derecha" class="imagen-lateral">
+            <button class="boton" onclick="window.location.href='pagina2.html'">Click</button>
+        </div>
+        
+    
     </div>
-
-    <!-- Reproductor de música -->
     <div class="musica">
         <audio controls autoplay>
             <source src="images/No Se Ocupa Más  Julion Álvarez  LetraLyrics.mp3" type="audio/mpeg">
             Tu navegador no soporta el elemento de audio.
         </audio>
-    </div>
+  
 </body>
 </html>
