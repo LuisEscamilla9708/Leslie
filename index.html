@@ -30,14 +30,5 @@
             Tu navegador no soporta el elemento de audio.
         </audio>
     </div>
-    <script>
-        // Reproducir audio al cargar la página
-        window.addEventListener('load', () => {
-            const audio = document.getElementById('audio');
-            audio.play().catch(error => {
-                console.log('El navegador bloqueó el autoplay:', error);
-            });
-        });
-    </script>
 </body>
 </html>
