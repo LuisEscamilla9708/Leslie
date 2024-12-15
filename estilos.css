@@ -1,3 +1,4 @@
+
 /* General */
 body {
     margin: 0;
@@ -8,13 +9,13 @@ body {
 
 /* Estilo para el video de fondo */
 #videoFondo {
-    position: fixed; /* Fijo para que no se mueva al hacer scroll */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Ocupa todo el ancho de la pantalla */
-    height: 100%; /* Ocupa todo el alto de la pantalla */
-    object-fit: cover; /* Asegura que el video cubra toda la pantalla sin deformarse */
-    z-index: -1; /* Detrás de todo el contenido */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
 /* Texto animado */
@@ -25,101 +26,107 @@ body {
     text-shadow: 2px 2px 10px rgba(255, 0, 0, 0.7);
     text-align: center;
     position: absolute;
-    top: 20%;
+    top: 10%; /* Ajustar para que siempre esté sobre la imagen principal */
     left: 50%;
     transform: translateX(-50%);
-    white-space: nowrap; /* Evitar que el texto salte de línea */
-    border-right: 2px solid white; /* Línea vertical simulando el cursor */
-    animation: escribir 4s steps(20); /* Animación de escritura */
+    white-space: nowrap;
+    border-right: 2px solid white;
+    animation: escribir 4s steps(20);
 }
 
 @keyframes escribir {
-    0% { width: 0; } /* Comienza sin texto visible */
-    100% { width: 20ch; } /* Muestra 20 caracteres */
+    0% { width: 0; }
+    100% { width: 20ch; }
 }
 
 /* Contenedor principal */
 .container {
-    display: flex; /* Colocar los elementos en fila */
-    flex-wrap: wrap; /* Permitir que los elementos bajen de línea en pantallas pequeñas */
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Alinear verticalmente */
-    gap: 10px; /* Espacio entre los elementos */
-    margin: 10% auto; /* Ajustar separación desde el texto */
+    display: flex;
+    justify-content: space-between; /* Distribuir las imágenes correctamente */
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto; /* Centrar el contenedor */
+    width: 90%; /* Ajustar el ancho para que se adapte */
+    max-width: 1200px; /* Tamaño máximo */
+    position: relative;
+    top: 20%; /* Mover el contenedor hacia abajo */
 }
 
 /* Imagen principal */
 .imagen-principal {
-    width: 80%; /* Usar un porcentaje para flexibilidad */
-    max-width: 300px; /* Tamaño máximo */
-    height: auto; /* Mantener proporciones */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+    width: 300px;
+    max-width: 80%; /* Limitar tamaño en pantallas pequeñas */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* Imágenes laterales */
 .imagen-lateral {
-    width: 40%; /* Usar un porcentaje para flexibilidad */
-    max-width: 200px; /* Tamaño máximo */
-    height: auto; /* Mantener proporciones */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
-    animation: flotar 3s infinite ease-in-out; /* Animación flotante */
+    width: 150px;
+    max-width: 40%; /* Limitar tamaño en pantallas pequeñas */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: flotar 3s infinite ease-in-out;
 }
 
 @keyframes flotar {
-    0%, 100% { transform: translateY(0); } /* Posición original */
-    50% { transform: translateY(-10px); } /* Subir ligeramente */
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .imagen-lateral:hover {
-    animation: none; /* Detener animación al pasar el mouse */
-    transform: scale(1.1); /* Ampliar imagen */
-    transition: transform 0.3s ease; /* Efecto suave */
+    animation: none;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 /* Reproductor de música */
 .musica {
-    position: relative; /* Necesario para que z-index funcione */
-    z-index: 2; /* Asegurar que quede encima del video */
-    text-align: center; /* Centrar horizontalmente */
-    margin-top: 20px; /* Separar del contenido superior */
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 20px;
 }
 
 /* Diseño responsivo */
 @media (max-width: 768px) {
     .texto-animado {
-        font-size: 24px; /* Reducir tamaño en pantallas medianas */
+        font-size: 24px;
+        top: 5%; /* Ajustar la posición en pantallas pequeñas */
     }
 
     .imagen-principal {
-        width: 60%; /* Reducir tamaño en pantallas medianas */
+        width: 60%; /* Reducir tamaño */
     }
 
     .imagen-lateral {
-        width: 30%; /* Reducir tamaño de las imágenes laterales */
+        width: 20%; /* Ajustar tamaño de las imágenes laterales */
     }
 
     .container {
-        gap: 5px; /* Reducir espacio entre elementos */
+        flex-wrap: nowrap; /* Mantener las imágenes en una sola fila */
+        justify-content: space-between; /* Asegurar el espaciado */
     }
 }
 
 @media (max-width: 480px) {
     .texto-animado {
-        font-size: 18px; /* Reducir aún más el tamaño en pantallas pequeñas */
+        font-size: 18px;
+        top: 5%; /* Mantener la posición del texto */
     }
 
     .imagen-principal {
-        width: 50%; /* Reducir más en pantallas pequeñas */
+        width: 50%;
     }
 
     .imagen-lateral {
-        width: 25%; /* Reducir tamaño lateral */
+        width: 20%; /* Mantener las imágenes laterales pequeñas */
     }
 
     .container {
-        gap: 5px; /* Menos espacio entre elementos */
+        flex-wrap: nowrap; /* Forzar fila única */
+        justify-content: space-between;
     }
 }
-
