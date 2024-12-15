@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 1</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #ff69b4, #87ceeb); /* Fondo inicial */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: fondo-animado 5s infinite alternate; /* Animación del fondo */
+        }
+
+        /* Animación de cambio de colores */
+        @keyframes fondo-animado {
+            0% {
+                background: linear-gradient(120deg, #ff69b4, #87ceeb);
+            }
+            100% {
+                background: linear-gradient(120deg, #87ceeb, #ff69b4);
+            }
+        }
+
+        .corazon {
+            width: 150px; /* Tamaño aumentado */
+            height: 150px;
+            background-color: red;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: latir 1s infinite ease-in-out;
+        }
+
+        .corazon::before, .corazon::after {
+            content: "";
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .corazon::before {
+            top: -75px;
+            left: 0;
+        }
+
+        .corazon::after {
+            left: 75px;
+            top: 0;
+        }
+
+        @keyframes latir {
+            0%, 100% {
+                transform: scale(1) rotate(-45deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(-45deg);
+            }
+        }
+
+        .mensaje {
+            margin-top: 30px; /* Separación del corazón */
+            font-size: 36px; /* Texto más grande */
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Sombra para el texto */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="corazon"></div>
+    <p class="mensaje">Estás bien bonita </p>
+</body>
+</html>
