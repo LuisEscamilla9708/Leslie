@@ -1,3 +1,11 @@
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
 /* Estilo para el video de fondo */
 #videoFondo {
     position: fixed; /* Fijo para que no se mueva al hacer scroll */
@@ -9,6 +17,7 @@
     z-index: -1; /* Detrás de todo el contenido */
 }
 
+/* Texto animado */
 .texto-animado {
     font-size: 36px;
     font-weight: bold;
@@ -19,85 +28,98 @@
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
-    overflow: hidden; /* Ocultar el texto que no está visible */
     white-space: nowrap; /* Evitar que el texto salte de línea */
     border-right: 2px solid white; /* Línea vertical simulando el cursor */
-    animation: escribir 4s steps(20); /* Animación */
+    animation: escribir 4s steps(20); /* Animación de escritura */
 }
 
-/* Animación del efecto de escritura */
 @keyframes escribir {
     0% { width: 0; } /* Comienza sin texto visible */
-    100% { width: 20ch; } /* Muestra 15 caracteres (ajustar según el texto) */
+    100% { width: 20ch; } /* Muestra 20 caracteres */
 }
 
 /* Contenedor principal */
 .container {
     display: flex; /* Colocar los elementos en fila */
+    flex-wrap: wrap; /* Permitir que los elementos bajen de línea en pantallas pequeñas */
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Alinear verticalmente */
-    gap: 20px; /* Espacio entre los elementos */
-    margin-top: 15%; /* Ajustar separación desde el texto */
+    gap: 10px; /* Espacio entre los elementos */
+    margin: 10% auto; /* Ajustar separación desde el texto */
 }
 
 /* Imagen principal */
 .imagen-principal {
-    width: 300px; /* Ancho de la imagen principal */
-    height: auto; /* Mantener la proporción de la imagen */
+    width: 80%; /* Usar un porcentaje para flexibilidad */
+    max-width: 300px; /* Tamaño máximo */
+    height: auto; /* Mantener proporciones */
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
 }
 
 /* Imágenes laterales */
 .imagen-lateral {
-    width: 200px; /* Ancho de las imágenes laterales */
+    width: 40%; /* Usar un porcentaje para flexibilidad */
+    max-width: 200px; /* Tamaño máximo */
     height: auto; /* Mantener proporciones */
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+    animation: flotar 3s infinite ease-in-out; /* Animación flotante */
 }
 
-/* Reproductor de música */
-.musica {
-    margin-top: 20px; /* Separar del contenido superior */
-    text-align: center; /* Centrar horizontalmente */
-    z-index: 2; /* Asegurar que quede encima del video */
-}
-
-/* Animación flotante */
 @keyframes flotar {
     0%, 100% { transform: translateY(0); } /* Posición original */
     50% { transform: translateY(-10px); } /* Subir ligeramente */
 }
 
-/* Aplicar la animación a las imágenes */
-.imagen-lateral {
-    animation: flotar 3s infinite ease-in-out; /* Flotar suavemente */
-}
-
-/* Otras configuraciones opcionales */
 .imagen-lateral:hover {
     animation: none; /* Detener animación al pasar el mouse */
     transform: scale(1.1); /* Ampliar imagen */
     transition: transform 0.3s ease; /* Efecto suave */
 }
 
+/* Reproductor de música */
+.musica {
+    position: relative; /* Necesario para que z-index funcione */
+    z-index: 2; /* Asegurar que quede encima del video */
+    text-align: center; /* Centrar horizontalmente */
+    margin-top: 20px; /* Separar del contenido superior */
+}
 
 /* Diseño responsivo */
 @media (max-width: 768px) {
     .texto-animado {
-        font-size: 24px; /* Reducir tamaño en pantallas pequeñas */
+        font-size: 24px; /* Reducir tamaño en pantallas medianas */
     }
 
     .imagen-principal {
-        width: 200px; /* Reducir tamaño en pantallas pequeñas */
+        width: 60%; /* Reducir tamaño en pantallas medianas */
     }
 
     .imagen-lateral {
-        width: 80px; /* Reducir tamaño de las imágenes laterales */
+        width: 30%; /* Reducir tamaño de las imágenes laterales */
     }
 
     .container {
-        gap: 10px; /* Reducir espacio entre elementos */
-        flex-wrap: wrap; /* Permitir que los elementos bajen de línea */
+        gap: 5px; /* Reducir espacio entre elementos */
     }
 }
+
+@media (max-width: 480px) {
+    .texto-animado {
+        font-size: 18px; /* Reducir aún más el tamaño en pantallas pequeñas */
+    }
+
+    .imagen-principal {
+        width: 50%; /* Reducir más en pantallas pequeñas */
+    }
+
+    .imagen-lateral {
+        width: 25%; /* Reducir tamaño lateral */
+    }
+
+    .container {
+        gap: 5px; /* Menos espacio entre elementos */
+    }
+}
+
